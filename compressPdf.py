@@ -6,13 +6,14 @@ st.title("Processador de PDF com Ghostscript")
 uploaded_file = st.file_uploader("Envie um arquivo PDF", type="pdf")
 
 if uploaded_file:
+    st.write(uploaded_file)
     with open("input.pdf", "wb") as f:
         f.write(uploaded_file.getbuffer())
     cmd = [
       "gs",
       "-sDEVICE=pdfwrite",
       "-dCompatibilityLevel=1.4",
-      "-dPDFSETTINGS=/ebook",
+      "-dPDFSETTINGS=/screen",
       "-dNOPAUSE",
       "-dQUIET",
       "-dBATCH",
@@ -30,4 +31,5 @@ if uploaded_file:
                     )
     else:
         st.error(f"Erro ao executar Ghostscript: {result.stderr}")
+
 
