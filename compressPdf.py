@@ -35,8 +35,8 @@ if upLoad:
                         file_name=upOutFinal
                         ):
                 sizeCompr = os.path.getsize(upOutPut)
-                red = sizeCompr/upSize*100
-                redExpr = f"PDF processado com sucesso e redução de {red:.2f}!"
+                red = (1 - sizeCompr/upSize)*100
+                redExpr = f"PDF processado com sucesso e redução de {red:.2f}%!"
                 st.success(redExpr)     
                 
     else:
