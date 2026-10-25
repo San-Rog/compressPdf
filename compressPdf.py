@@ -15,7 +15,7 @@ if uploaded_file:
       "gs",
       "-sDEVICE=pdfwrite",
       "-dCompatibilityLevel=1.4",
-      "-dPDFSETTINGS=/ebook",
+      "-dPDFSETTINGS=/screen",
       "-dNOPAUSE",
       "-dQUIET",
       "-dBATCH",
