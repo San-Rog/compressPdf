@@ -31,10 +31,11 @@ if upLoad:
             st.download_button(
                     "Baixar PDF Otimizado", 
                     f, 
-                    file_name="output_otimizado.pdf"
+                    file_name=upFinal
                     )
     else:
         st.error(f"Erro ao executar Ghostscript: {result.stderr}")
+
 
 
 
