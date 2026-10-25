@@ -34,9 +34,11 @@ if upLoad:
                         f, 
                         file_name=upOutFinal
                         ):
-                st.success("PDF processado com sucesso!")     
-                st.write(os.path.getsize(upOutPut))
-                st.write(upSize)
+                sizeCompr = os.path.getsize(upOutPut)
+                red = sizeCompr/upSize*100
+                redExpr = f"PDF processado com sucesso e redução de {red:.2f}!"
+                st.success(redExpr)     
+                
     else:
         st.error(f"Erro ao executar Ghostscript: {result.stderr}")
 
