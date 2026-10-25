@@ -18,7 +18,7 @@ if upLoad:
       "gs",
       "-sDEVICE=pdfwrite",
       "-dCompatibilityLevel=1.4",
-      "-dPDFSETTINGS=/screen",
+      "-dPDFSETTINGS=/ebook",
       "-dNOPAUSE",
       "-dQUIET",
       "-dBATCH",
