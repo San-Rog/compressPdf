@@ -1,5 +1,6 @@
 import subprocess
 import streamlit as st
+import os
 
 st.title("Processador de PDF com Ghostscript")
 
