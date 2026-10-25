@@ -24,19 +24,19 @@ if upLoad:
           f"-sOutputFile={upOutPut}",
           "input.pdf",
     ]
-  st.write(os.path.getsize(upOutPut))
-  st.write(upSize)
-  result = subprocess.run(cmd, capture_output=True, text=True)
-  if result.returncode == 0:
-      with open(upOutPut, "rb") as f:
-          st.download_button(
+st.write(os.path.getsize(upOutPut))
+st.write(upSize)
+result = subprocess.run(cmd, capture_output=True, text=True)
+if result.returncode == 0:
+    with open(upOutPut, "rb") as f:
+        st.download_button(
                         "Baixar PDF Otimizado", 
                         f, 
                         file_name="output_otimizado.pdf"
                         )
-      st.success("PDF processado com sucesso!")
-  else:
-      st.error(f"Erro ao executar Ghostscript: {result.stderr}")
+    st.success("PDF processado com sucesso!")
+else:
+    st.error(f"Erro ao executar Ghostscript: {result.stderr}")
 
 
 
