@@ -17,7 +17,7 @@ if upLoad:
     listColor = list(range(150, 1200))
     lists = [listGray, listMono, listColor]
     if st.button("Comprimir"): 
-        st.spinner(text="Iniciando os procedimentos para opções de compressão...", 
+        with st.spinner(text="Iniciando os procedimentos para opções de compressão...", 
                    show_time=True, width="content"):
             with open(upInput, "wb") as f:
                 f.write(upLoad.getbuffer())
