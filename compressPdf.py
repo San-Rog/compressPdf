@@ -22,7 +22,7 @@ if upLoad:
               "-dPDFSETTINGS=/screen",
               "-dGrayImageResolution=600", 
               "-dMonoImageResolution=1200", 
-              "-dColorImageResolution=300", 
+              "-dColorImageResolution=600", 
               "-dNOPAUSE",
               "-dQUIET",
               "-dBATCH",
