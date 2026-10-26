@@ -3,7 +3,9 @@ import subprocess
 import streamlit as st
 
 st.title("Processador de PDF com Ghostscript")
+
 upLoad = st.file_uploader("Envie um arquivo PDF", type="pdf")
+
 if upLoad:
     upName = upLoad.name
     upSize = upLoad.size
@@ -40,10 +42,9 @@ if upLoad:
                         upOutSize = os.path.getsize(upOutPut)
                         rateComp = (1 - upOutSize/upSize)*100
                         compExp = f"inicial: {upSize}kB, final: {upOutSize}kB, opção: {option}, taxa: {rateComp:.2f}"  
-                        st.success("PDF processado com sucesso! {compExp}")
+                        st.success(f"PDF processado com sucesso! {compExp}")
             else:
                 st.error(f"Erro ao executar Ghostscript: {result.stderr}")
-
 
 
 
