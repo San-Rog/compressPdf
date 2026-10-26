@@ -16,8 +16,6 @@ if upLoad and upLoad is not None:
     listMono = list(range(150, 1200))
     listColor = list(range(150, 1200))
     lists = [listGray, listMono, listColor]
-    if st.button('comprimir'):
-        with st.spinner(text="Preparação para comprimir...", show_time=True, width="content"): 
     with open(upInput, "wb") as f:
         f.write(upLoad.getbuffer())
     for option in options: 
