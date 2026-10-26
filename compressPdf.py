@@ -19,7 +19,7 @@ if upLoad:
     with open(upInput, "wb") as f:
         f.write(upLoad.getbuffer())
         for option in options: 
-            choices = [random.choice(l) for l in listas]
+            choices = [random.choice(l) for l in lists]
             choicesStr = "_".join([str(choice) for choice in choices])
             upOutFinal = f"{name}_compress_{option}_{choicesStr}{ext}"
             cmd = [
