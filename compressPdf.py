@@ -24,8 +24,8 @@ if upLoad:
               "-dQUIET",
               "-dBATCH",
               f"-sOutputFile={upOutPut}",
-              "input.pdf",
-        ]
+              f"{upInput}",
+            ]
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode == 0:
         with open(upOutPut, "rb") as f:
