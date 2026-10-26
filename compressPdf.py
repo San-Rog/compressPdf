@@ -15,30 +15,30 @@ if upLoad:
     upOutFinal = f"{name}_compress{ext}"
     with open(upInput, "wb") as f:
         f.write(upLoad.getbuffer())
-    cmd = [
-          "gs",
-          "-sDEVICE=pdfwrite",
-          "-dCompatibilityLevel=1.4",
-          "-dPDFSETTINGS=/screen",
-          "-dNOPAUSE",
-          "-dQUIET",
-          "-dBATCH",
-          f"-sOutputFile={upOutPut}",
-          "input.pdf",
-    ]
-result = subprocess.run(cmd, capture_output=True, text=True)
-if result.returncode == 0:
-    with open(upOutPut, "rb") as f:
-        if st.download_button(
-                        "Baixar PDF Otimizado", 
-                        f, 
-                        file_name=upOutFinal
-                        ):
-            st.success("PDF processado com sucesso!")
-            st.write(os.path.getsize(upOutPut))
-            st.write(upSize)
-else:
-    st.error(f"Erro ao executar Ghostscript: {result.stderr}")
+        cmd = [
+              "gs",
+              "-sDEVICE=pdfwrite",
+              "-dCompatibilityLevel=1.4",
+              "-dPDFSETTINGS=/screen",
+              "-dNOPAUSE",
+              "-dQUIET",
+              "-dBATCH",
+              f"-sOutputFile={upOutPut}",
+              "input.pdf",
+        ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode == 0:
+        with open(upOutPut, "rb") as f:
+            if st.download_button(
+                            "Baixar PDF Otimizado", 
+                            f, 
+                            file_name=upOutFinal
+                            ):
+                st.success("PDF processado com sucesso!")
+                st.write(os.path.getsize(upOutPut))
+                st.write(upSize)
+    else:
+        st.error(f"Erro ao executar Ghostscript: {result.stderr}")
 
 
 
