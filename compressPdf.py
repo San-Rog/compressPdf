@@ -1,11 +1,10 @@
 import os
+import random
 import subprocess
 import streamlit as st
 
 st.title("Processador de PDF com Ghostscript")
-
 upLoad = st.file_uploader("Envie um arquivo PDF", type="pdf")
-
 if upLoad:
     upName = upLoad.name
     upSize = upLoad.size
@@ -13,18 +12,24 @@ if upLoad:
     upInput = f"{name}_input{ext}"
     upOutPut = f"{name}_output{ext}"
     options = ["screen", "ebook", "printer", "prepress", "default"]
+    listGray = [150, 300, 600, 1200]
+    listMono = [150, 300, 600, 1200]
+    listColor = [150, 300, 600, 1200]
+    lists = [listGray, listMono, listColor]
     with open(upInput, "wb") as f:
         f.write(upLoad.getbuffer())
         for option in options: 
-            upOutFinal = f"{name}_compress_{option}{ext}"
+            choices = [random.choice(l) for l in listas]
+            choicesStr = "_".join([str(choice) for choice in choices])
+            upOutFinal = f"{name}_compress_{option}_{choicesStr}{ext}"
             cmd = [
                   "gs",
                   "-sDEVICE=pdfwrite",
                   "-dCompatibilityLevel=1.4",
                   f"-dPDFSETTINGS=/{option}",
-                  "-dGrayImageResolution=600", 
-                  "-dMonoImageResolution=1200", 
-                  "-dColorImageResolution=500", 
+                  f"-dGrayImageResolution=choices[0]", 
+                  f"-dMonoImageResolution=choices[1]", 
+                  f"-dColorImageResolution=choices[2]", 
                   "-dNOPAUSE",
                   "-dQUIET",
                   "-dBATCH",
