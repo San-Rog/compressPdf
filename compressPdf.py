@@ -28,7 +28,7 @@ if upLoad:
     ]
 result = subprocess.run(cmd, capture_output=True, text=True)
 if result.returncode == 0:
-with open(upOutPut, "rb") as f:
+    with open(upOutPut, "rb") as f:
         if st.download_button(
                         "Baixar PDF Otimizado", 
                         f, 
