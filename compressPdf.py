@@ -12,14 +12,15 @@ if upLoad:
     upInput = f"{name}_input{ext}"
     upOutPut = f"{name}_output{ext}"
     options = ["screen", "ebook", "printer", "prepress", "default"]
-    listGray = [150, 300, 600, 1200]
-    listMono = [150, 300, 600, 1200]
-    listColor = [150, 300, 600, 1200]
+    listGray = list(range(150, 1200)]
+    listMono = list(range(150, 1200)]
+    listColor = list(range(150, 1200)]
     lists = [listGray, listMono, listColor]
     with open(upInput, "wb") as f:
         f.write(upLoad.getbuffer())
         for option in options: 
-            choices = [random.choice(l) for l in lists]
+            #choices = [random.choice(l) for l in lists]
+            choices = [600, 600, 600]
             choicesStr = "_".join([str(choice) for choice in choices])
             upOutFinal = f"{name}_compress_{option}_{choicesStr}{ext}"
             cmd = [
