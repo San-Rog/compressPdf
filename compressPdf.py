@@ -19,29 +19,29 @@ if upLoad:
               "gs",
               "-sDEVICE=pdfwrite",
               "-dCompatibilityLevel=1.4",
-              "-dPDFSETTINGS=/printer",
+              "-dPDFSETTINGS=/screen",
               "-dGrayImageResolution=600", 
-              "-dMonoImageResolution=600", 
-              "-dColorImageResolution=600", 
+              "-dMonoImageResolution=1200", 
+              "-dColorImageResolution=500", 
               "-dNOPAUSE",
               "-dQUIET",
               "-dBATCH",
               f"-sOutputFile={upOutPut}",
               f"{upInput}",
-            ]
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode == 0:
-        with open(upOutPut, "rb") as f:
-            if st.download_button(
-                            "Baixar PDF Otimizado", 
-                            f, 
-                            file_name=upOutFinal
-                            ):
-                st.success("PDF processado com sucesso!")
-                st.write(os.path.getsize(upOutPut))
-                st.write(upSize)
-    else:
-        st.error(f"Erro ao executar Ghostscript: {result.stderr}")
+        ]
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode == 0:
+            with open(upOutPut, "rb") as f:
+                if st.download_button(
+                                "Baixar PDF Otimizado", 
+                                f, 
+                                file_name=upOutFinal
+                                ):
+                    st.success("PDF processado com sucesso!")
+                    st.write(os.path.getsize(upOutPut))
+                    st.write(upSize)
+        else:
+            st.error(f"Erro ao executar Ghostscript: {result.stderr}")
 
 
 
