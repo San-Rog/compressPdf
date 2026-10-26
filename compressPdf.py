@@ -21,8 +21,6 @@ if upLoad:
           "-dCompatibilityLevel=1.4",
           "-dPDFSETTINGS=/screen",
           "-dGrayImageResolution=600", 
-          "-dMonoImageResolution=1200", 
-          "-dColorImageResolution=300",
           "-dNOPAUSE",
           "-dQUIET",
           "-dBATCH",
