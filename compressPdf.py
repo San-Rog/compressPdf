@@ -21,6 +21,7 @@ if upLoad:
         for option in options: 
             choices = [random.choice(l) for l in lists]
             choicesStr = "_".join([str(choice) for choice in choices])
+            st.write(choicesStr)
             upOutFinal = f"{name}_compress_{option}_{choicesStr}{ext}"
             cmd = [
                   "gs",
