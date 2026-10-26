@@ -1,6 +1,6 @@
+import os
 import subprocess
 import streamlit as st
-import os
 
 st.title("Processador de PDF com Ghostscript")
 
@@ -26,21 +26,19 @@ if upLoad:
           f"-sOutputFile={upOutPut}",
           "input.pdf",
     ]
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode == 0:
-        with open(upOutPut, "rb") as f:
-            if st.download_button(
+  result = subprocess.run(cmd, capture_output=True, text=True)
+  if result.returncode == 0:
+    with open(upOutPut, "rb") as f:
+          if st.download_button(
                         "Baixar PDF Otimizado", 
                         f, 
                         file_name=upOutFinal
                         ):
-                sizeCompr = os.path.getsize(upOutPut)
-                red = (1 - sizeCompr/upSize)*100
-                redExpr = f"PDF processado com sucesso e redução de {red:.2f}%!"
-                st.success(redExpr)     
-                
-    else:
-        st.error(f"Erro ao executar Ghostscript: {result.stderr}")
+            st.success("PDF processado com sucesso!")
+            st.write(os.path.getsize(upOutPut))
+            st.write(upSize)
+  else:
+      st.error(f"Erro ao executar Ghostscript: {result.stderr}")
 
 
 
