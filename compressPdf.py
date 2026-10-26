@@ -5,7 +5,7 @@ import streamlit as st
 
 st.title("Processador de PDF com Ghostscript")
 upLoad = st.file_uploader("Envie um arquivo PDF", type="pdf")
-if upLoad:
+if upLoad and upLoad is not None:
     upName = upLoad.name
     upSize = upLoad.size
     name, ext = os.path.splitext(upName)
