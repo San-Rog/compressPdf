@@ -21,16 +21,15 @@ if upLoad:
         for option in options: 
             choices = [random.choice(l) for l in lists]
             choicesStr = "_".join([str(choice) for choice in choices])
-            st.write(choicesStr)
             upOutFinal = f"{name}_compress_{option}_{choicesStr}{ext}"
             cmd = [
                   "gs",
                   "-sDEVICE=pdfwrite",
                   "-dCompatibilityLevel=1.4",
                   f"-dPDFSETTINGS=/{option}",
-                  f"-dGrayImageResolution=choices[0]", 
-                  f"-dMonoImageResolution=choices[1]", 
-                  f"-dColorImageResolution=choices[2]", 
+                  f"-dGrayImageResolution={choices[0]}", 
+                  f"-dMonoImageResolution={choices[1]}", 
+                  f"-dColorImageResolution={choices[2]}", 
                   "-dNOPAUSE",
                   "-dQUIET",
                   "-dBATCH",
