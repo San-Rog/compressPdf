@@ -19,7 +19,7 @@ if upLoad:
               "gs",
               "-sDEVICE=pdfwrite",
               "-dCompatibilityLevel=1.4",
-              "-dPDFSETTINGS=/ebook",
+              "-dPDFSETTINGS=/printer",
               "-dGrayImageResolution=600", 
               "-dMonoImageResolution=600", 
               "-dColorImageResolution=600", 
