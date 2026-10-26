@@ -20,7 +20,6 @@ if upLoad:
           "-sDEVICE=pdfwrite",
           "-dCompatibilityLevel=1.4",
           "-dPDFSETTINGS=/screen",
-          "-dGrayImageResolution=600", 
           "-dNOPAUSE",
           "-dQUIET",
           "-dBATCH",
