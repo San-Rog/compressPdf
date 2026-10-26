@@ -41,7 +41,8 @@ if upLoad:
                                     ):
                         upOutSize = os.path.getsize(upOutPut)
                         rateComp = (1 - upOutSize/upSize)*100
-                        compExp = f"inicial: {upSize}kB, final: {upOutSize}kB, opção: {option}, taxa: {rateComp:.2f}"  
+                        rateFinal = (100 - rateComp)
+                        compExp = f"inicial: {upSize}kB, final: {upOutSize}kB, opção: {option}, taxa de redução: {rateComp:.2f}%, taxa final: {rateComp:.2f}%"  
                         st.success(f"PDF processado com sucesso! {compExp}")
             else:
                 st.error(f"Erro ao executar Ghostscript: {result.stderr}")
