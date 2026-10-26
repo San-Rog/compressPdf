@@ -20,7 +20,7 @@ if upLoad:
         f.write(upLoad.getbuffer())
         for option in options: 
             #choices = [random.choice(l) for l in lists]
-            choices = [300, 300, 300]
+            choices = [150, 150, 150]
             choicesStr = "_".join([str(choice) for choice in choices])
             upOutFinal = f"{name}_compress_{option}_{choicesStr}{ext}"
             cmd = [
@@ -39,7 +39,7 @@ if upLoad:
                   "-dNOPAUSE",
                   "-dQUIET",
                   "-dBATCH",
-                  "-dSAFER", 
+                  "-dSAFER",    
                   f"-sOutputFile={upOutPut}",
                   f"{upInput}",
             ]
