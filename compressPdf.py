@@ -12,11 +12,11 @@ if upLoad:
     name, ext = os.path.splitext(upName)
     upInput = f"{name}_input{ext}"
     upOutPut = f"{name}_output{ext}"
-    upOutFinal = f"{name}_compress{ext}"
     options = ["screen", "ebook", "printer", "prepress", "default"]
     with open(upInput, "wb") as f:
         f.write(upLoad.getbuffer())
         for option in options: 
+            upOutFinal = f"{name}_compress_{option}{ext}"
             cmd = [
                   "gs",
                   "-sDEVICE=pdfwrite",
