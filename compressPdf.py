@@ -12,9 +12,9 @@ if upLoad:
     upInput = f"{name}_input{ext}"
     upOutPut = f"{name}_output{ext}"
     options = ["screen", "ebook", "printer", "prepress", "default"]
-    listGray = list(range(150, 1200)]
-    listMono = list(range(150, 1200)]
-    listColor = list(range(150, 1200)]
+    listGray = list(range(150, 1200))
+    listMono = list(range(150, 1200))
+    listColor = list(range(150, 1200))
     lists = [listGray, listMono, listColor]
     with open(upInput, "wb") as f:
         f.write(upLoad.getbuffer())
