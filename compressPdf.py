@@ -20,7 +20,7 @@ if upLoad and upLoad is not None:
         f.write(upLoad.getbuffer())
     for option in options: 
         #choices = [random.choice(l) for l in lists]
-        choices = [30, 30, 30]
+        choices = [150, 150, 150]
         choicesStr = "_".join([str(choice) for choice in choices])
         upOutFinal = f"{name}_compress_{option}_{choicesStr}{ext}"
         cmd = [
@@ -28,14 +28,6 @@ if upLoad and upLoad is not None:
                   "-sDEVICE=pdfwrite",
                   "-dCompatibilityLevel=1.4",
                   f"-dPDFSETTINGS=/{option}",
-                  "-dDownsampleColorImages=true", 
-                  "-dColorImageDownsampleType=/Bicubic", 
-                  "-dEmbedAllFonts=true", 
-                  "-dSubsetFonts=true", 
-                  "-dMonoImageDownsampleType=/Subsample",  
-                  f"-dGrayImageResolution={choices[0]}", 
-                  f"-dMonoImageResolution={choices[1]}", 
-                  f"-dColorImageResolution={choices[2]}", 
                   "-dNOPAUSE",
                   "-dQUIET",
                   "-dBATCH",
