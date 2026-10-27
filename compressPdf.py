@@ -20,7 +20,7 @@ if upLoad and upLoad is not None:
         f.write(upLoad.getbuffer())
     for option in options: 
         #choices = [random.choice(l) for l in lists]
-        choices = [70, 70, 70]
+        choices = [30, 30, 30]
         choicesStr = "_".join([str(choice) for choice in choices])
         upOutFinal = f"{name}_compress_{option}_{choicesStr}{ext}"
         cmd = [
